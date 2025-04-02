@@ -168,6 +168,7 @@ postgresql:
 {% if patroni_postgresql_config_dir |d(None, true) %}
   config_dir: {{ patroni_postgresql_config_dir }}
 {% endif %}
+use_pg_rewind: {{ patroni_bootstrap_dcs_postgresql_use_pg_rewind |string |d(true, true) |replace(None, true) |lower }}
 {% if patroni_postgresql_pgpass |d(None, true) %}
   pgpass: {{ patroni_postgresql_pgpass }}
 {% endif %}
