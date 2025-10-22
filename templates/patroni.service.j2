@@ -26,6 +26,20 @@ TimeoutSec=30
 
 # Do not restart the service if it crashes, we want to manually inspect database on failure
 Restart=no
-
+{% if patroni_kubernetes_kubeconfig_path is defined %}
+Environment=KUBECONFIG={{ patroni_kubernetes_kubeconfig_path }}
+{% endif %}
+{% if patroni_kubernetes_service_host is defined %}
+Environment=KUBERNETES_SERVICE_HOST={{ patroni_kubernetes_service_host }}
+{% endif %}
+{% if patroni_kubernetes_service_port is defined %}
+Environment=KUBERNETES_SERVICE_PORT={{ patroni_kubernetes_service_port }}
+{% endif %}
+{% if patroni_kubernetes_token is defined %}
+Environment=KUBERNETES_TOKEN_FILE={{ patroni_config_dir }}/{{ PATRONI_KUBERNETES_TOKEN_FILE }}
+{% endif %}
+{% if patroni_kubernetes_ca is defined %}
+Environment=KUBERNETES_CA_FILE={{ patroni_config_dir }}/{{ patroni_kubernetes_ca_file }}
+{% endif %}
 [Install]
 WantedBy=multi-user.target

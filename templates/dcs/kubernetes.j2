@@ -1,0 +1,46 @@
+kubernetes:
+{% if patroni_kubernetes_bypass_api_service is defined %}
+  bypass_api_service: {{ patroni_kubernetes_bypass_api_service }}
+{% endif %}
+{% if patroni_kubernetes_namespace is defined %}
+  namespace: {{ patroni_kubernetes_namespace }}
+{% endif %}
+{% if patroni_kubernetes_labels is defined %}
+  labels: {{ patroni_kubernetes_labels }}
+{% endif %}
+{% if patroni_kubernetes_scope_label is defined %}
+  scope_label: {{ patroni_kubernetes_scope_label }}
+{% endif %}
+{% if patroni_kubernetes_bootstrap_labels is defined %}
+  bootstrap_labels: {{ patroni_kubernetes_bootstrap_labels }}
+{% endif %}
+{% if patroni_kubernetes_role_label is defined %}
+  role_label: {{ patroni_kubernetes_role_label }}
+{% endif %}
+{% if patroni_kubernetes_leader_label_value is defined %}
+  leader_label_value: {{ patroni_kubernetes_leader_label_value }}
+{% endif %}
+{% if patroni_kubernetes_follower_label_value is defined %}
+  follower_label_value: {{ patroni_kubernetes_follower_label_value }}
+{% endif %}
+{% if patroni_kubernetes_standby_leader_label_value is defined %}
+  standby_leader_label_value: {{ patroni_kubernetes_standby_leader_label_value }}
+{% endif %}
+{% if patroni_kubernetes_tmp_role_label is defined %}
+  tmp_role_label: {{ patroni_kubernetes_tmp_role_label }}
+{% endif %}
+{% if patroni_kubernetes_use_endpoints is defined %}
+  use_endpoints: {{ patroni_kubernetes_use_endpoints }}
+{% endif %}
+{% if patroni_kubernetes_pod_ip is defined %}
+  pod_ip: {{ patroni_kubernetes_pod_ip }}
+{% endif %}
+{% if patroni_kubernetes_ports is defined %}
+  ports: {{ patroni_kubernetes_ports }}
+{% endif %}
+{% if patroni_kubernetes_cacert is defined %}
+  cacert: {{ patroni_kubernetes_cacert }}
+{% endif %}
+{% if patroni_kubernetes_retriable_http_codes is defined %}
+  retriable_http_codes: {{ patroni_kubernetes_retriable_http_codes }}
+{% endif %}

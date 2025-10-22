@@ -49,6 +49,24 @@
   notify:
     - restart patroni
 
+- name: Create patroni CA file
+  template:
+    src: patroni.yml.j2
+    dest: "{{ patroni_config_dir }}/{{ patroni_kubernetes_ca_file }}"
+    owner: "{{ patroni_system_user }}"
+    group: "{{ patroni_system_group }}"
+    mode: 0600
+  when: patroni_kubernetes_ca is defined
+
+- name: Create patroni token file
+  template:
+    src: patroni.yml.j2
+    dest: "{{ patroni_config_dir }}/{{ patroni_kubernetes_token_file }}"
+    owner: "{{ patroni_system_user }}"
+    group: "{{ patroni_system_group }}"
+    mode: 0600
+  when: patroni_kubernetes_token is defined 
+
 - name: Create haproxy configuration file
   template:
     src: haproxy.cfg.j2

@@ -245,3 +245,5 @@ patroni_tags:
   - { name: "clonefrom",     value: "false" }
   - { name: "nosync",        value: "false" }
   - { name: "replicatefrom", value: "" }
+patroni_kubernetes_token_file: token
+patroni_kubernetes_ca_file: ca.crt
